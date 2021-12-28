@@ -1,0 +1,15 @@
+{
+  "name": "mailbot",
+  "version": "1.0.0",
+  "description": "This bot send mail to someones DM through bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cadburry#7547",
+  "license": "GNU",
+  "dependencies": {
+    "discord.js": "^13.4.0",
+    "express": "^4.17.1"
+  }
+}
