@@ -4,7 +4,7 @@
 // -- / Dependency and config \ -- \\
 const { Client, Intents } = require('discord.js');
 const mailbot = new Client({ intents: [Intents.FLAGS.GUILDS] });
-global.config = require("../config.json")
+global.config = require("./config.json")
 
 // -- / On Bot ready Do \ -- \\
 mailbot.on('ready', () => {        
