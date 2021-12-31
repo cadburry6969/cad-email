@@ -32,7 +32,7 @@ mailbot.login(config.token);  // Add Your Token Here
 // -- / QBCore Part \ -- \\
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var QBCore = exports['qb-core'].GetCoreObject();
+var QBCore = global.exports['qb-core'].GetCoreObject();
 
 
 // -- / Event which send request to bot \ -- \\
