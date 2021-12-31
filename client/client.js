@@ -30,7 +30,7 @@ RegisterNuiCallback('Close', () => {
 
 
 // -- / FUNCTIONS \ -- \\
-let display = false
+const display = false
 function OpenNUI() {   
   if (display == false) {     
     display = true
