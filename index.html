@@ -115,14 +115,18 @@
 	</style>
 	<!-- JS PART -->	
 	<script>
+		function CloseNUI() {
+			$("body").fadeOut("slow","linear");
+			$.post(`http://cad-email/Close`);			
+		};
 		$(document).ready(function () {			
 			window.addEventListener('message', function (event) {
 				var item = event.data;
 				if (item.show == true) {
-					open();
+					$("body").css("display", "block");
 				}
 				if (item.show == false) {
-					close();
+					$("body").css("display", "none");
 				}
 				if (item.type == "mail") {   
 					let secondary = [item.name, item.discord, item.subject, item.body, item.email];    
@@ -131,10 +135,7 @@
 			});
 			document.onkeyup = function (data) {
 				if (data.which == 27) {
-					$("body").fadeOut("slow","linear")
-					setTimeout(function(){
-						$.post(`https://cad-email/close`, JSON.stringify({}));
-					}, 130);
+					CloseNUI();
 				}
 			};
 
@@ -148,10 +149,7 @@
 				else {
 					primary = [discord,subject,description];
 					$.post(`https://cad-email/SendInfo`, JSON.stringify({primary}));
-					$("body").fadeOut("slow","linear")
-					setTimeout(function(){
-							$.post(`https://cad-email/close`, JSON.stringify({}));
-						}, 200);
+					CloseNUI();
 					document.getElementById("discord").value = '';
 					document.getElementById("subject").value = '';
 					document.getElementById('description').value = ''
@@ -159,13 +157,5 @@
 			});
 
 			});
-
-			function open() {
-				$("body").css("display", "block");
-			}
-
-			function close() {
-				$("body").css("display", "none");
-			}
 	</script>
 </html>
