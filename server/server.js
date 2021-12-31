@@ -38,7 +38,12 @@ onNet("cademailSendMailServer", async (name, discord, subject, body, email) => {
     let ts = Date.now();
     let date_ob = new Date(ts);     
     let DateTime = `${IntTwoChars(date_ob.getHours())}:${IntTwoChars(date_ob.getMinutes())}:${IntTwoChars(date_ob.getSeconds())} ${date_ob.getDate()}/${date_ob.getMonth() + 1}/${date_ob.getFullYear()}`;    
-	mailbot.users.fetch(discord).then((user) => user.send('> **From:** '+email+' \n> \n> **Subject:** '+subject+' \n> **Body:** '+body+' \n> \n> **Sign:** '+name+' \n> \n> **Recieved on:** '+DateTime));    
+	mailbot.users.fetch(discord).then((user) => 
+        user.send('> **From:** '+email+' \n> \n> **Subject:** '+subject+' \n> **Body:** '+body+' \n> \n> **Sign:** '+name+' \n> \n> **Recieved on:** '+DateTime).catch(err => {
+            let error = emitNet("cademailSendNotify", src, "Cannot send message (DM's Off)")
+            return error
+        })
+    );    
 });       
 
 onNet("cademailSendMailinfo", async (data) => {        
