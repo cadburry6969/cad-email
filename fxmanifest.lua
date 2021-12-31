@@ -10,12 +10,6 @@ files {
     "index.html",
 }
 
-client_scripts {
-    'client/client.lua',
-    'client/client.js'
-}
+client_script 'client/client.js'
 
-server_scripts {
-    'server/server.js',
-    'server/server.lua'
-}
+server_script 'server/server.js'
