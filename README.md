@@ -1,9 +1,10 @@
 # cad-email
 Email to peoples Discord DM directly from FiveM [QBCore]
 
-# Updates v1.0
+# Updates v1.1
 * Fixed Closing with `ESC` not removing cursor
 * Removed Lua part and compiled all in javascript [Thanks to Mojito for `qbcore.js`]
+* Code Cleanup
 
 # Preview
 [Video](https://youtu.be/x6OisU5M22A)
