@@ -2,7 +2,7 @@
   "name": "mailbot",
   "version": "1.0.0",
   "description": "This bot send mail to someones DM through bot",
-  "main": "bot.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
