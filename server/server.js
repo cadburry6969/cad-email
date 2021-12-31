@@ -30,14 +30,36 @@ function IntTwoChars(i) {
 // -- / Logging into your bot \ -- \\ 
 mailbot.login(config.token);  // Add Your Token Here
 
+// -- / QBCore Part \ -- \\
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var QBCore = exports['qb-core'].GetCoreObject();
+
+
 // -- / Event which send request to bot \ -- \\
-RegisterServerEvent("sendmailserver")
-onNet("sendmailserver", async (name, discord, subject, body, email) => {        
+RegisterServerEvent("cademailSendMailServer")
+onNet("cademailSendMailServer", async (name, discord, subject, body, email) => {        
     let ts = Date.now();
     let date_ob = new Date(ts);     
     let DateTime = `${IntTwoChars(date_ob.getHours())}:${IntTwoChars(date_ob.getMinutes())}:${IntTwoChars(date_ob.getSeconds())} ${date_ob.getDate()}/${date_ob.getMonth() + 1}/${date_ob.getFullYear()}`;    
 	mailbot.users.fetch(discord).then((user) => user.send('> **From:** '+email+' \n> \n> **Subject:** '+subject+' \n> **Body:** '+body+' \n> \n> **Sign:** '+name+' \n> \n> **Recieved on:** '+DateTime));    
 });       
 
+RegisterServerEvent("cademailSendMailinfo")
+onNet("cademailSendMailinfo", async (data) => {        
+    let src = source
+    let Player = QBCore.Functions.GetPlayer(src)
+    let name = Player.PlayerData.charinfo.firstname+" "+Player.PlayerData.charinfo.lastname
+    let email = Player.PlayerData.charinfo.firstname+"_"+Player.PlayerData.charinfo.lastname+"@email.com"
+    let discord = data['primary'][0]
+    let subject = data['primary'][1]
+    let description = data['primary'][2]
+    emitNet("cademailMailSent", src, name, discord, subject, description, email)
+});       
+
+// -- / COMMANDS \ -- \\
+QBCore.Commands.Add('email', 'Send Email to Someone', {}, false, (source, args)  => {
+    emitNet('cademailOpenNUI', source)
+})
 
 // -- / Made By Cadburry#7547 \ -- \\
