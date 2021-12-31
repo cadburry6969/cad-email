@@ -16,11 +16,10 @@ mailbot.on('ready', () => {
 
 // -- / Functions \ -- \\
 function updateStatus(client, seconds) { // Adds Bot Activity
-    const interval = setInterval(function setStatus() {
+   setInterval(function() {        
         let status = `${GetNumPlayerIndices()} Players`            
         client.user.setActivity(status, {type: 'WATCHING'})
-        return setStatus;
-    }(), seconds * 1000)
+    }, seconds * 1000)    
 }
 
 function IntTwoChars(i) {
