@@ -4,6 +4,7 @@ Email to peoples Discord DM directly from FiveM [QBCore]
 # Updates v1.1
 * Fixed Closing with `ESC` not removing cursor
 * Removed Lua part and compiled all in javascript [Thanks to Mojito for `qbcore.js`]
+* Added Notify [if User DM's are off]
 * Code Cleanup
 
 # Preview
