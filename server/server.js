@@ -30,13 +30,10 @@ function IntTwoChars(i) {
 mailbot.login(config.token);  // Add Your Token Here
 
 // -- / QBCore Part \ -- \\
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var QBCore = global.exports['qb-core'].GetCoreObject();
 
 
 // -- / Event which send request to bot \ -- \\
-RegisterServerEvent("cademailSendMailServer")
 onNet("cademailSendMailServer", async (name, discord, subject, body, email) => {        
     let ts = Date.now();
     let date_ob = new Date(ts);     
@@ -44,7 +41,6 @@ onNet("cademailSendMailServer", async (name, discord, subject, body, email) => {
 	mailbot.users.fetch(discord).then((user) => user.send('> **From:** '+email+' \n> \n> **Subject:** '+subject+' \n> **Body:** '+body+' \n> \n> **Sign:** '+name+' \n> \n> **Recieved on:** '+DateTime));    
 });       
 
-RegisterServerEvent("cademailSendMailinfo")
 onNet("cademailSendMailinfo", async (data) => {        
     let src = source
     let Player = QBCore.Functions.GetPlayer(src)
