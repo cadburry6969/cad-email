@@ -6,13 +6,8 @@ const RegisterNuiCallback = (name, cb) => {
 }
 
 // -- / NUI \ -- \\
-RegisterNuiCallback('sendmail', (data) => {
-  var name = data['secondary'][0]
-  var discord = data['secondary'][1]
-  var subject = data['secondary'][2]
-  var description = data['secondary'][3]
-  var email = data['secondary'][4]
-  emitNet("cademailSendMailServer", name, discord, subject, description, email)
+RegisterNuiCallback('sendmail', (data) => { 
+  emitNet("cademailSendMailServer", data['secondary'][0], data['secondary'][1], data['secondary'][2], data['secondary'][3], data['secondary'][4])
 })
 
 RegisterNuiCallback('SendInfo', (data) => {
@@ -30,7 +25,7 @@ RegisterNuiCallback('Close', () => {
 
 
 // -- / FUNCTIONS \ -- \\
-const display = false
+let display = false
 function OpenNUI() {   
   if (display == false) {     
     display = true
