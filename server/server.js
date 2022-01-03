@@ -7,7 +7,7 @@ const mailbot = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const config = require("./config.json")
 
 // -- / On Bot ready Do \ -- \\
-mailbot.once("ready", () => { // prints "Ready!" to the console once the bot is online
+mailbot.on("ready", () => { // prints "Ready!" to the console once the bot is online
     console.log("\nMailBot (FiveM to Discord DM). Made By Cadburry#7547.\n");         
     console.log(`Discord Bot logged in as ${mailbot.user.tag}`);    
     mailbot.user.setStatus('dnd').catch(err => {return console.log(err)});     
