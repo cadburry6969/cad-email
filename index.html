@@ -30,11 +30,11 @@
 	<!-- CSS PART -->	
 	<style>
 		body {
-			display: none;
+			/* display: none; */
 			width: 70vh;
 			margin: auto;
 			margin-top: 9%;
-			font-family: Tahoma, sans-serif;
+			font-family: Courier;
 			text-align: center;  
 		}
 
@@ -48,14 +48,15 @@
 
 		.header {
 			padding-top: 1%;
-			background-color: #1779fa;
+			background-color: #1A1B20;
 			color: white;
-			border-radius: 10px;
+			border-radius: 10px;			
 		}
 
 		.main {
 			padding: 1%;  
-			background-color: #87aee2;
+			background-color: #1A1B20;
+			border-top: 4px solid white;
 			color: rgb(56, 56, 56);
 			border-radius: 0 0 10px 10px;
 			text-align: left;
@@ -80,11 +81,13 @@
 
 		input[type=text], textarea {
 			width: 50vh;
-			padding: 12px;
-			border: 2px solid rgb(77, 77, 77);
-			box-shadow: 4px 4px rgb(77, 77, 77);
-			border-radius: 6px;
-			resize: vertical;
+			padding: 12px;	
+			color: white;
+			background: #272D33 repeat-x;			
+			border: 0px solid rgb(255, 255, 255);
+			box-shadow: -3px 3px rgba(255, 255, 255, 0.301);
+			border-radius: 10px;			
+			resize: vertical;						
 		}
 
 		input:nth-of-type(1), input:nth-of-type(2) {
@@ -95,7 +98,7 @@
 		input[type=button] {
 			display: inline-block;
 			outline: 0;
-			background: #1779fa;
+			background: #272D33;
 			width: 17%;  
 			padding: 15px;    
 			color: #FFFFFF;
@@ -103,13 +106,13 @@
 			margin-left: 40%;
 			margin-top: 2%;
 			margin-bottom: 2%;
-			border: 1px solid rgb(77, 77, 77);
-			box-shadow: 4px 4px rgb(77, 77, 77);
+			border: none;
+			box-shadow: -3px 3px rgba(255, 255, 255, 0.301);
 			border-radius: 10px;
 		}
 
 		input[type=button]:hover {
-			background: #6dacff;  
+			background: #22242c;  
 			cursor: pointer;
 		}
 	</style>
