@@ -9,6 +9,7 @@ Email to peoples Discord DM directly from FiveM [QBCore]
 
 # Preview
 [Video](https://youtu.be/x6OisU5M22A)
+![Screenshot_1](https://user-images.githubusercontent.com/72443203/148434019-174f9e1a-f481-4948-b6be-00d47b8b3467.png)
 
 # Installation
 * Step 1: Create a Discord Bot, Add it to your server.
