@@ -10,6 +10,10 @@
 		<div class="header"><h2>Email</h2>
 			<div class="main">
 				<form action="#" method="">
+					<div class="title"><i class="fas fa-id-card-alt"></i><label for="playerid"> Player ID</label></div>
+					<div class="context">
+						<input type="text" name="playerid" id="playerid" placeholder="Enter Player ID">
+					</div>
 					<div class="title"><i class="fab fa-discord"></i><label for="discord"> Discord ID (Ex: 482449059194470410)</label></div>
 					<div class="context">
 						<input type="text" name="discord" id="discord" placeholder="Enter Discord">
@@ -142,21 +146,18 @@
 				}
 			};
 
-			$(".SetInfo").click(function () { 
+			$(".SetInfo").click(function () { 				
 				var discord = document.getElementById("discord").value;
 				var subject = document.getElementById("subject").value;
-				var description = document.getElementById("description").value;
-				if (subject =="" || discord == "" || description == "") {
-					console.log("Fill in all fields")      
-				}
-				else {
-					primary = [discord,subject,description];
-					$.post(`https://cad-email/SendInfo`, JSON.stringify({primary}));
-					CloseNUI();
-					document.getElementById("discord").value = '';
-					document.getElementById("subject").value = '';
-					document.getElementById('description').value = ''
-				}
+				var description = document.getElementById("description").value;							
+				var playerid = document.getElementById("playerid").value;							
+				primary = [discord,subject,description,playerid];
+				$.post(`https://cad-email/SendInfo`, JSON.stringify({primary}));
+				CloseNUI();				
+				document.getElementById("discord").value = '';
+				document.getElementById("subject").value = '';
+				document.getElementById('description').value = ''				
+				document.getElementById("playerid").value = '';
 			});
 
 			});
