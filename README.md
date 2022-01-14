@@ -1,12 +1,6 @@
 # cad-email
 Email to peoples Discord DM directly from FiveM [QBCore]
 
-# Updates v1.1
-* Fixed Closing with `ESC` not removing cursor
-* Removed Lua part and compiled all in javascript [Thanks to Mojito for `qbcore.js`]
-* Added Notify [if User DM's are off]
-* Code Cleanup
-
 # Preview
 Demo Video: [Click Here](https://youtu.be/x6OisU5M22A)
 
@@ -20,3 +14,17 @@ Demo Video: [Click Here](https://youtu.be/x6OisU5M22A)
 
 # Support
 * Discord: https://discord.gg/9tyjPkA6nd
+
+
+# Updates v1.1
+* Fixed Closing with `ESC` not removing cursor
+* Removed Lua part and compiled all in javascript [Thanks to Mojito for `qbcore.js`]
+
+# Updates v1.1.1
+* Added Notify [if User DM's are off]
+* Code Cleanup
+
+# Updates v1.1.2
+* Added Option to send mail by entering player id (mail will only go if the target has discord linked with fivem)
+* Fixed bugs
+* Added Close Button
