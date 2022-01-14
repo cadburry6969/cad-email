@@ -8,7 +8,7 @@ Email to peoples Discord DM directly from FiveM [QBCore]
 * Code Cleanup
 
 # Preview
-Demo Video: [Video](https://youtu.be/x6OisU5M22A)
+Demo Video: [Click Here](https://youtu.be/x6OisU5M22A)
 
 ![image](https://user-images.githubusercontent.com/72443203/149477441-45e94f16-ce23-4f99-8967-3927a3911bad.png)
 
