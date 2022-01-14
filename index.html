@@ -6,8 +6,8 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" type="text/css">		
 	</head>
 
-	<body>
-		<div class="header"><h2>Email</h2>
+	<body>		
+		<div class="header"><input type="closebtn" onclick="CloseNUI()" placeholder= " ✖ "><h2>Email</h2>							
 			<div class="main">
 				<form action="#" method="">
 					<div class="title"><i class="fas fa-id-card-alt"></i><label for="playerid"> Player ID</label></div>
@@ -34,7 +34,7 @@
 	<!-- CSS PART -->	
 	<style>
 		body {
-			display: none;
+			/* display: none; */
 			width: 70vh;
 			margin: auto;
 			margin-top: 9%;
@@ -46,8 +46,8 @@
 			display: none;
 		}
 
-		h2 {
-			padding-right: 4vh;
+		::placeholder {
+			color: #c5c5c5;			
 		}
 
 		.header {
@@ -56,7 +56,7 @@
 			color: white;
 			border-radius: 10px;			
 		}
-
+		
 		.main {
 			padding: 1%;  
 			background-color: #1A1B20;
@@ -117,6 +117,23 @@
 
 		input[type=button]:hover {
 			background: #22242c;  
+			cursor: pointer;
+		}
+
+		input[type=closebtn] {
+			display: inline-block;			
+			background: #272D33;						    
+			color: #FFFFFF;
+			font-size: 2vh;			
+			width: 4%;						
+			margin-left: 90%;	
+			margin-top: 2%;			
+			border: none;			
+			border-radius: 2vh;
+		}
+		
+		input[type=closebtn]:hover {
+			background: #fe000088;  
 			cursor: pointer;
 		}
 	</style>
