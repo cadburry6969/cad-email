@@ -6,16 +6,16 @@ const RegisterNuiCallback = (name, cb) => {
 }
 
 // -- / NUI \ -- \\
-RegisterNuiCallback('sendmail', (data) => { 
+RegisterNuiCallback('sendmail', (data) => {   
   emitNet("cademailSendMailServer", data['secondary'][0], data['secondary'][1], data['secondary'][2], data['secondary'][3], data['secondary'][4])
 })
 
-RegisterNuiCallback('SendInfo', (data) => {
-  var discord = data['primary'][0]
-  var subject = data['primary'][1]
-  var description = data['primary'][2]
-  if (discord !== "" && subject !== "" && description !== "") {     
-   emitNet("cademailSendMailinfo", data) 
+RegisterNuiCallback('SendInfo', (data) => {  
+  if (data['primary'][3] !== "") {     
+    console.log(data['primary'][3])
+    emitNet("cademailSendMailinfo", data, true)     
+  } else {    
+    emitNet("cademailSendMailinfo", data, false) 
   }
 })
 
