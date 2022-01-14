@@ -10,7 +10,7 @@ const config = require("./config.json")
 mailbot.on("ready", () => { // prints "Ready!" to the console once the bot is online
     console.log("\nMailBot (FiveM to Discord DM). Made By Cadburry#7547.\n");         
     console.log(`Discord Bot logged in as ${mailbot.user.tag}`);    
-    mailbot.user.setStatus('dnd').catch(err => {return console.log(err)});     
+    mailbot.user.setStatus('dnd');     
     updateStatus(mailbot, 30) // updating every 30 secs   
 });
 
@@ -18,7 +18,7 @@ mailbot.on("ready", () => { // prints "Ready!" to the console once the bot is on
 function updateStatus(client, seconds) { // Adds Bot Activity
    setInterval(function() {        
         const status = `${GetNumPlayerIndices()} Players`            
-        client.user.setActivity(status, {type: 'WATCHING'}).catch(err => {return console.log(err)})
+        client.user.setActivity(status, {type: 'WATCHING'})
     }, seconds * 1000)    
 }
 
@@ -44,10 +44,15 @@ onNet("cademailSendMailServer", async (name, discord, subject, body, email) => {
     );    
 });       
 
-onNet("cademailSendMailinfo", async (data) => {        
-    const src = source
-    const { firstname, lastname } = QBCore.Functions.GetPlayer(src).PlayerData.charinfo;
-    emitNet("cademailMailSent", src, `${firstname} ${lastname}`, data['primary'][0], data['primary'][1], data['primary'][2], `${firstname}_${lastname}@email.com`);
+onNet("cademailSendMailinfo", async (data, bool) => {        
+    const src = source            
+    const { firstname, lastname } = QBCore.Functions.GetPlayer(src).PlayerData.charinfo;            
+    if (bool) {        
+        const discord = QBCore.Functions.GetIdentifier(data['primary'][3], 'discord');          
+        emitNet("cademailMailSent", src, `${firstname} ${lastname}`, discord.replace("discord:", ""), data['primary'][1], data['primary'][2], `${firstname}_${lastname}@email.com`);                                              
+    } else {                
+        emitNet("cademailMailSent", src, `${firstname} ${lastname}`, data['primary'][0], data['primary'][1], data['primary'][2], `${firstname}_${lastname}@email.com`);
+    }
 });     
 
 // -- / COMMANDS \ -- \\
