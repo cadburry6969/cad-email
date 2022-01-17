@@ -6,6 +6,12 @@ Demo Video: [Click Here](https://youtu.be/x6OisU5M22A)
 
 ![image](https://user-images.githubusercontent.com/72443203/149477441-45e94f16-ce23-4f99-8967-3927a3911bad.png)
 
+# Dependencies
+* yarn
+* git
+* qb-core or es_extended
+* node.js
+
 # Installation
 * Step 1: Create a Discord Bot, Add it to your server.
 * Step 2: Add your bot token in `config.json` & Add your `core` info [Use `qbcore` or `esx`]
