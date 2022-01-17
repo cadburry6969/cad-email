@@ -28,3 +28,9 @@ Demo Video: [Click Here](https://youtu.be/x6OisU5M22A)
 * Added Option to send mail by entering player id (mail will only go if the target has discord linked with fivem)
 * Fixed bugs
 * Added Close Button
+
+# Updates v1.1.3
+* Added Support for ESX
+* Changed Notification to native
+* Added `esx.js` package for running esx functions
+
