@@ -29,35 +29,68 @@ function IntTwoChars(i) {
 // -- / Logging into your bot \ -- \\ 
 mailbot.login(config.token);  // Add Your Token Here
 
-// -- / QBCore Part \ -- \\
-var QBCore = global.exports['qb-core'].GetCoreObject();
-
 
 // -- / Event which send request to bot \ -- \\
-onNet("cademailSendMailServer", async (name, discord, subject, body, email) => {        
+onNet("cademailSendMailServer", async (name, discord, subject, body, email) => {    
+    const src = source    
     const date = new Date();    
-	mailbot.users.fetch(discord).then((user) => 
+    mailbot.users.fetch(discord).then((user) => 
         user.send('> **From:** '+email+' \n> \n> **Subject:** '+subject+' \n> **Body:** '+body+' \n> \n> **Sign:** '+name+' \n> \n> '+date).catch(err => {
             const error = emitNet("cademailSendNotify", src, "Cannot send message (DM's Off)")
             return error
         })
     );    
-});       
+});   
 
-onNet("cademailSendMailinfo", async (data, bool) => {        
-    const src = source            
-    const { firstname, lastname } = QBCore.Functions.GetPlayer(src).PlayerData.charinfo;            
-    if (bool) {        
-        const discord = QBCore.Functions.GetIdentifier(data['primary'][3], 'discord');          
-        emitNet("cademailMailSent", src, `${firstname} ${lastname}`, discord.replace("discord:", ""), data['primary'][1], data['primary'][2], `${firstname}_${lastname}@email.com`);                                              
-    } else {                
-        emitNet("cademailMailSent", src, `${firstname} ${lastname}`, data['primary'][0], data['primary'][1], data['primary'][2], `${firstname}_${lastname}@email.com`);
-    }
-});     
+if (config.core == "qbcore") {
+    // -- / QBCore Core \ -- \\
+    var QBCore = global.exports['qb-core'].GetCoreObject();        
 
-// -- / COMMANDS \ -- \\
-QBCore.Commands.Add('email', 'Send Email to Someone', {}, false, (source, args)  => {
-    emitNet('cademailOpenNUI', source)
-})
+    onNet("cademailSendMailinfo", async (data, bool) => {        
+        const src = source            
+        const { firstname, lastname } = QBCore.Functions.GetPlayer(src).PlayerData.charinfo;            
+        if (bool) {        
+            const discord = QBCore.Functions.GetIdentifier(data['primary'][3], 'discord');          
+            if (discord) {
+                emitNet("cademailMailSent", src, `${firstname} ${lastname}`, discord.replace("discord:", ""), data['primary'][1], data['primary'][2], `${firstname}_${lastname}@email.com`);                                              
+            } else {
+                emitNet("cademailSendNotify", src, "The person has not linked discord with fivem")
+            }
+        } else {                
+            emitNet("cademailMailSent", src, `${firstname} ${lastname}`, data['primary'][0], data['primary'][1], data['primary'][2], `${firstname}_${lastname}@email.com`);
+        }
+    });     
+
+    // -- / COMMANDS \ -- \\
+    QBCore.Commands.Add('email', 'Send Email to Someone', {}, false, (source, args)  => {
+        emitNet('cademailOpenNUI', source)
+    })
+} else if (config.core == "esx")  {
+    let ESX = null
+    emit('esx:getSharedObject', (obj) => (ESX = obj));
+    
+    
+    onNet("cademailSendMailinfo", async (data, bool) => {        
+        const src = source                   
+        const xPlayer = ESX.GetPlayerFromId(src)
+        const name = xPlayer.getName()                      
+        if (bool) {        
+            const discord = GetPlayerIdentifier(source,3);   
+            if (discord) {                
+                emitNet("cademailMailSent", src, name, discord.replace("discord:", ""), data['primary'][1], data['primary'][2], name+`@email.com`);                                              
+            } else {
+                emitNet("cademailSendNotify", src, "The person has not linked discord with fivem")
+            }            
+        } else {                
+            emitNet("cademailMailSent", src, name, data['primary'][0], data['primary'][1], data['primary'][2], name+`@email.com`);
+        }
+    });     
+
+    // -- / COMMANDS \ -- \\
+    RegisterCommand('email', (source, args) => {
+        emitNet('cademailOpenNUI', source)
+    }, false)
+    
+}
 
 // -- / Made By Cadburry#7547 \ -- \\
