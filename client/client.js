@@ -1,5 +1,3 @@
-var QBCore = global.exports['qb-core'].GetCoreObject();
-
 const RegisterNuiCallback = (name, cb) => {
   RegisterNuiCallbackType(name)
   on(`__cfx_nui:${name}`, cb)
@@ -50,8 +48,16 @@ onNet("cademailMailSent", (name, discord, subject, description, email) => {
   CloseNUI()
 })
 
+// -- / Uncomment this if you need QB Notifications and comment the below code \ -- \\
+// var QBCore = global.exports['qb-core'].GetCoreObject();  
+// onNet("cademailSendNotify", (msg) => {   
+//   QBCore.Functions.Notify(msg)
+// })
+
 onNet("cademailSendNotify", (msg) => {   
-  QBCore.Functions.Notify(msg)
+  SetNotificationTextEntry('STRING');
+  AddTextComponentString(msg);
+  DrawNotification(false, false)  
 })
 
 
