@@ -68,14 +68,18 @@ if (config.core == "qbcore") {
 } else if (config.core == "esx")  {
     let ESX = null
     emit('esx:getSharedObject', (obj) => (ESX = obj));
-    
+      
+    const GetDiscord = (id) => {
+        const value = getPlayerIdentifiers(id);
+        return value["discord"] || false;
+    };
     
     onNet("cademailSendMailinfo", async (data, bool) => {        
         const src = source                   
         const xPlayer = ESX.GetPlayerFromId(src)
         const name = xPlayer.getName()                      
         if (bool) {        
-            const discord = GetPlayerIdentifier(source,3);   
+            const discord = GetDiscord(data['primary'][3]);   
             if (discord) {                
                 emitNet("cademailMailSent", src, name, discord.replace("discord:", ""), data['primary'][1], data['primary'][2], name+`@email.com`);                                              
             } else {
