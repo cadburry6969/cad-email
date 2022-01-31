@@ -70,8 +70,12 @@ if (config.core == "qbcore") {
     emit('esx:getSharedObject', (obj) => (ESX = obj));
       
     const GetDiscord = (id) => {
-        const value = getPlayerIdentifiers(id);
-        return value["discord"] || false;
+        const values = {};
+        for (let i = 0; i < GetNumPlayerIdentifiers(id); i++) {
+            const identifier = GetPlayerIdentifier(id, i).split(":");
+            values[identifier[0]] = identifier[1];
+        }
+        return values["discord"] || false;
     };
     
     onNet("cademailSendMailinfo", async (data, bool) => {        
@@ -81,7 +85,7 @@ if (config.core == "qbcore") {
         if (bool) {        
             const discord = GetDiscord(data['primary'][3]);   
             if (discord) {                
-                emitNet("cademailMailSent", src, name, discord.replace("discord:", ""), data['primary'][1], data['primary'][2], name+`@email.com`);                                              
+                emitNet("cademailMailSent", src, name, discord, data['primary'][1], data['primary'][2], name+`@email.com`);                                              
             } else {
                 emitNet("cademailSendNotify", src, "The person has not linked discord with fivem")
             }            
