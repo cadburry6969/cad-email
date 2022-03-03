@@ -9,7 +9,7 @@
   "author": "Cadburry#7547",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "github:zfbx/discord.js",
+    "discord.js": "^13.6.0",
     "esx.js": "^1.1.8",
     "express": "^4.17.1",
     "qbcore.js": "^1.4.1"
