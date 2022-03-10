@@ -7,7 +7,7 @@
 	</head>
 
 	<body>		
-		<div class="header"><input type="closebtn" onclick="CloseNUI()" placeholder= " ✖ "><h2>Email</h2>							
+		<div class="header"><input type="closebtn" onclick="CloseNUI()" ><h2>Email<span class="close">&times;</span></h2>
 			<div class="main">
 				<form action="#" method="">
 					<div class="title"><i class="fas fa-id-card-alt"></i><label for="playerid"> Player ID</label></div>
@@ -34,7 +34,7 @@
 	<!-- CSS PART -->	
 	<style>
 		body {
-			display: none;
+			/* display: none; */
 			width: 70vh;
 			margin: auto;
 			margin-top: 9%;
@@ -48,7 +48,7 @@
 
 		::placeholder {
 			color: #c5c5c5;			
-		}
+		}		
 
 		.header {
 			padding-top: 1%;
@@ -83,6 +83,14 @@
 			margin-bottom: 2px;
 		}
 
+		.close {
+			cursor: pointer;
+			position: absolute;
+			top: 11.2%;
+			right: 12.5%;			
+			transform: translate(0%, -50%);
+		}
+		
 		input[type=text], textarea {
 			width: 50vh;
 			padding: 12px;	
@@ -92,7 +100,7 @@
 			box-shadow: -3px 3px rgba(255, 255, 255, 0.301);
 			border-radius: 10px;			
 			resize: vertical;						
-		}
+		}		
 
 		input:nth-of-type(1), input:nth-of-type(2) {
 			display: inline;
@@ -129,7 +137,7 @@
 			margin-left: 90%;	
 			margin-top: 2%;			
 			border: none;			
-			border-radius: 2vh;
+			border-radius: 0.5vh;
 		}
 		
 		input[type=closebtn]:hover {
