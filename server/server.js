@@ -10,18 +10,11 @@ const config = require("./config.json")
 mailbot.on("ready", () => { // prints "Ready!" to the console once the bot is online
     console.log("\nMailBot (FiveM to Discord DM). Made By Cadburry#7547.\n");         
     console.log(`Discord Bot logged in as ${mailbot.user.tag}`);    
-    mailbot.user.setStatus('dnd');     
-    updateStatus(mailbot, 30) // updating every 30 secs   
+    mailbot.user.setStatus('dnd');   
+    mailbot.user.setActivity(`player emails`, {type: 'WATCHING'})
 });
 
 // -- / Functions \ -- \\
-function updateStatus(client, seconds) { // Adds Bot Activity
-   setInterval(function() {        
-        const status = `${GetNumPlayerIndices()} Players`            
-        client.user.setActivity(status, {type: 'WATCHING'})
-    }, seconds * 1000)    
-}
-
 function IntTwoChars(i) {
     return (`0${i}`).slice(-2);
 }
