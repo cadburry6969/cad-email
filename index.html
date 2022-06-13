@@ -149,7 +149,7 @@
 	<script>
 		function CloseNUI() {
 			$("body").fadeOut("slow","linear");
-			$.post(`https://cad-email/Close`);			
+			$.post(`https://${GetParentResourceName()}/Close`);			
 		};
 		$(document).ready(function () {			
 			window.addEventListener('message', function (event) {
@@ -162,7 +162,7 @@
 				}
 				if (item.type == "mail") {   
 					let secondary = [item.name, item.discord, item.subject, item.body, item.email];    
-					$.post(`https://cad-email/sendmail`, JSON.stringify({secondary}));        
+					$.post(`https://${GetParentResourceName()}/sendmail`, JSON.stringify({secondary}));        
 				} 
 			});
 			document.onkeyup = function (data) {
@@ -177,7 +177,7 @@
 				var description = document.getElementById("description").value;							
 				var playerid = document.getElementById("playerid").value;							
 				primary = [discord,subject,description,playerid];
-				$.post(`https://cad-email/SendInfo`, JSON.stringify({primary}));
+				$.post(`https://${GetParentResourceName()}/SendInfo`, JSON.stringify({primary}));
 				CloseNUI();				
 				document.getElementById("discord").value = '';
 				document.getElementById("subject").value = '';
