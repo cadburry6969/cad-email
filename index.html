@@ -7,7 +7,7 @@
 	</head>
 
 	<body>		
-		<div class="header"><input type="closebtn" onclick="CloseNUI()" ><h2>Email<span class="close">&times;</span></h2>
+		<div class="header"><h2>Email<span class="close" onclick="CloseNUI()">&times;</span></h2>
 			<div class="main">
 				<form action="#" method="">
 					<div class="title"><i class="fas fa-id-card-alt"></i><label for="playerid"> Player ID</label></div>
@@ -86,8 +86,8 @@
 		.close {
 			cursor: pointer;
 			position: absolute;
-			top: 11.2%;
-			right: 12.5%;			
+			top: 19.2%;
+			right: 32%;			
 			transform: translate(0%, -50%);
 		}
 		
@@ -125,23 +125,6 @@
 
 		input[type=button]:hover {
 			background: #22242c;  
-			cursor: pointer;
-		}
-
-		input[type=closebtn] {
-			display: inline-block;			
-			background: #272D33;						    
-			color: #FFFFFF;
-			font-size: 2vh;			
-			width: 4%;						
-			margin-left: 90%;	
-			margin-top: 2%;			
-			border: none;			
-			border-radius: 0.5vh;
-		}
-		
-		input[type=closebtn]:hover {
-			background: #fe000088;  
 			cursor: pointer;
 		}
 	</style>
