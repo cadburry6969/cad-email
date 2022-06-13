@@ -40,3 +40,7 @@ Demo Video: [Click Here](https://youtu.be/x6OisU5M22A)
 * Changed Notification to native
 * Added `esx.js` package for running esx functions
 
+# Updates v1.1.4
+* Removed Status Update
+* Post request changes
+* Close btn fix
