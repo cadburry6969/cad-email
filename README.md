@@ -19,7 +19,7 @@ Demo Video: [Click Here](https://youtu.be/x6OisU5M22A)
 * Step 4: Finish! Now use `/email` command and try it.
 
 # Support
-* Discord: https://discord.gg/9tyjPkA6nd
+* Discord: https://discord.gg/qxGPARNwNP
 
 
 # Updates v1.1
