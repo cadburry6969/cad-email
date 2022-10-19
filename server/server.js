@@ -2,9 +2,12 @@
 // -- / https://discordapp.com/oauth2/authorize?client_id=your_client_id&scope=bot&permissions=8
 
 // -- / Dependency and config \ -- \\
-const { Client, Intents } = require('discord.js');
-const mailbot = new Client({ intents: [Intents.FLAGS.GUILDS] });
-const config = require("./config.json")
+const { Client, GatewayIntentBits } = require('discord.js');
+const mailbot = new Client({ intents: [GatewayIntentBits.Guilds] });
+const config = {
+    "token": "OTYyMzAzNTgwOTk4NjIzMzIz.GNIeN0.yImJVuwUPLqXR03At8bifRSSJwnOSdhaht-ycA",
+    "core": "qbcore"
+}
 
 // -- / On Bot ready Do \ -- \\
 mailbot.on("ready", () => { // prints "Ready!" to the console once the bot is online
