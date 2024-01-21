@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Cadburry#7547",
+  "author": "Cadburry",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.6.0",
+    "discord.js": "github:zfbx/discord.js",
     "esx.js": "^1.1.8",
     "express": "^4.17.1",
     "qbcore.js": "^1.4.1"

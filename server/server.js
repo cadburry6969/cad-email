@@ -2,8 +2,8 @@
 // -- / https://discordapp.com/oauth2/authorize?client_id=your_client_id&scope=bot&permissions=8
 
 // -- / Dependency and config \ -- \\
-const { Client, GatewayIntentBits } = require('discord.js');
-const mailbot = new Client({ intents: [GatewayIntentBits.Guilds] });
+const { Client } = require('discord.js');
+const mailbot = new Client({ intents: 14335, fetchAllMembers: true });
 const config = {
     "token": "OTYyMzAzNTgwOTk4NjIzMzIz.GNIeN0.yImJVuwUPLqXR03At8bifRSSJwnOSdhaht-ycA",
     "core": "qbcore"
@@ -11,8 +11,8 @@ const config = {
 
 // -- / On Bot ready Do \ -- \\
 mailbot.on("ready", () => { // prints "Ready!" to the console once the bot is online
-    console.log("\nMailBot (FiveM to Discord DM). Made By Cadburry#7547.\n");         
-    console.log(`Discord Bot logged in as ${mailbot.user.tag}`);    
+    console.log("\nMailBot (FiveM to Discord DM). Made By Cadburry.\n");         
+    console.log(`Ready, logged in as ${mailbot.user.tag}`);    
     mailbot.user.setStatus('dnd');   
     mailbot.user.setActivity(`player emails`, {type: 'WATCHING'})
 });
