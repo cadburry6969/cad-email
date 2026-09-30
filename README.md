@@ -2,6 +2,8 @@
 
 Send mail from FiveM straight to a player's Discord DMs. Pure Lua, no Node or yarn needed.
 
+![alt text](image.png)
+
 ## Features
 * **Mail list**: mail can only be sent to people saved in your own mail list
 * Add contacts by **Discord ID**, **Citizen ID**, or an **online player's server ID**. For Citizen ID and player ID, their Discord ID is looked up and saved with the contact right away
