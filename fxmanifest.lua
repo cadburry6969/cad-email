@@ -1,18 +1,40 @@
 fx_version 'cerulean'
 game 'gta5'
+lua54 'yes'
 
-author "Cadburry"
-description "This is a fivem script where you can send a message to a person discord dm from server"
+name 'cad-email'
+author 'Cadburry'
+description 'Send mail from FiveM straight to a player Discord DM'
+version '2.0.0'
 
-ui_page "index.html"
+ui_page 'web/index.html'
+
 files {
-    "index.html",
+    'web/index.html',
+    'web/style.css',
+    'web/app.js',
 }
 
-client_script 'client/client.js'
-server_script 'server/server.js'
+shared_scripts {
+    '@ox_lib/init.lua',
+}
+
+client_scripts {
+    'config/client.lua',
+    'client/main.lua',
+}
+
+server_scripts {
+    '@oxmysql/lib/MySQL.lua',
+    'config/server.lua',
+    'server/logs.lua',
+    'server/bridge.lua',
+    'server/database.lua',
+    'server/discord.lua',
+    'server/main.lua',
+}
 
 dependencies {
-    '/server:7290',
-    'yarn'
+    'ox_lib',
+    'oxmysql',
 }

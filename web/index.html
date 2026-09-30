@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="app" class="app hidden">
+        <header class="top">
+            <div>
+                <h1>Mail</h1>
+                <p class="sender" id="sender"></p>
+            </div>
+            <button class="icon-btn" id="close" title="Close (Esc)">&times;</button>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab active" data-tab="compose">Compose</button>
+            <button class="tab" data-tab="contacts">Mail list <span class="count" id="contact-count">0</span></button>
+            <button class="tab" data-tab="sent">Sent</button>
+        </nav>
+
+        <div class="status hidden" id="status"></div>
+
+        <!-- Compose -->
+        <section class="panel" id="tab-compose">
+            <div class="notice hidden" id="compose-empty">
+                You can only mail people in your mail list.
+                <button class="btn primary small" id="go-contacts">Add someone</button>
+            </div>
+
+            <div class="field">
+                <label for="pick">To</label>
+                <select id="pick"><option value="">Choose from your mail list</option></select>
+            </div>
+
+            <div class="field">
+                <label for="subject">Subject <span class="counter" id="subject-count"></span></label>
+                <input id="subject" type="text" placeholder="What is it about?" autocomplete="off">
+            </div>
+
+            <div class="field">
+                <label for="body">Message <span class="counter" id="body-count"></span></label>
+                <textarea id="body" rows="8" placeholder="Write your message"></textarea>
+            </div>
+
+            <div class="actions">
+                <button class="btn ghost" id="clear">Clear</button>
+                <button class="btn primary" id="send">Send</button>
+            </div>
+        </section>
+
+        <!-- Mail list -->
+        <section class="panel hidden" id="tab-contacts">
+            <p class="my-id hidden" id="my-id"></p>
+
+            <form class="add-contact" id="contact-form">
+                <div class="toggle" id="add-modes">
+                    <button type="button" class="mode active" data-mode="discord">Discord ID</button>
+                    <button type="button" class="mode citizen-only" data-mode="citizenid">Citizen ID</button>
+                    <button type="button" class="mode citizen-only" data-mode="player">Player ID (online)</button>
+                </div>
+                <div class="row">
+                    <input id="contact-label" type="text" maxlength="50" placeholder="Name" autocomplete="off">
+                    <input id="contact-value" type="text" placeholder="Discord ID" autocomplete="off">
+                    <button class="btn primary" type="submit">Save</button>
+                </div>
+            </form>
+
+            <ul class="list" id="contacts"></ul>
+            <p class="empty hidden" id="contacts-empty">Your mail list is empty. Add someone above to start mailing them.</p>
+        </section>
+
+        <!-- Sent -->
+        <section class="panel hidden" id="tab-sent">
+            <ul class="list" id="history"></ul>
+            <p class="empty hidden" id="history-empty">You have not sent any mail yet.</p>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
